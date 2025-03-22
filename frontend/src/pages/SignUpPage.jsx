@@ -17,6 +17,7 @@ const SignUpPage = () => {
       if (!formData.fullName.trim()) return toast.error("Full name is required");
       if (!formData.email.trim()) return toast.error("Email is required");
       if (!/\S+@\S+\.\S+/.test(formData.email)) return toast.error("Invalid email format");
+      if (!formData.password) return toast.error("Password is required");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
