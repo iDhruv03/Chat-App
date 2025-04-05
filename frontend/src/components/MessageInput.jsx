@@ -33,6 +33,18 @@ const MessageInput = () => {
           </div>
         </div>
       )}
+
+      <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+        <div className="flex-1 flex gap-2">
+        <input
+            type="text"
+            className="w-full input input-bordered rounded-lg input-sm sm:input-md"
+            placeholder="Type a message..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </div>
+      </form>
     </div>
   );
 };
