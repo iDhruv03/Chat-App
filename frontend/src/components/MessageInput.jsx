@@ -22,7 +22,10 @@ const MessageInput = () => {
     reader.readAsDataURL(file);
 
   };
-  const removeImage = () => {};
+  const removeImage = () => {
+    setImagePreview(null);
+    if(fileInputRef.current) fileInputRef.current.value = "";
+  };
   const handleSendMessage = async (e) => {};
 
   return (
