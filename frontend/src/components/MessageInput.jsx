@@ -27,7 +27,19 @@ const MessageInput = () => {
     if(fileInputRef.current) fileInputRef.current.value = "";
   };
   const handleSendMessage = async (e) => {
-    
+    e.preventDefault();
+    if (!text.trim() && !imagePreview) return;
+    try {
+      await sendMessage({
+        text: text.trim(),
+        image: imagePreview,
+      });
+      setText("");
+      setImagePreview(null);
+      if(fileInputRef.current) fileInputRef.current.value = "";
+    } catch (error) {
+      console.error("Failed to send message:", error);
+    }
   };
 
   return (
